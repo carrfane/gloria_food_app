@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180213140749) do
+ActiveRecord::Schema.define(version: 20180213182434) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,17 @@ ActiveRecord::Schema.define(version: 20180213140749) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["merge_restaurant_id"], name: "index_merge_locals_on_merge_restaurant_id"
+  end
+
+  create_table "merge_menus", force: :cascade do |t|
+    t.integer "prov_producto"
+    t.integer "c_producto_id"
+    t.string "nivel"
+    t.bigint "merge_restaurant_id"
+    t.boolean "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["merge_restaurant_id"], name: "index_merge_menus_on_merge_restaurant_id"
   end
 
   create_table "merge_restaurants", force: :cascade do |t|
@@ -81,6 +92,7 @@ ActiveRecord::Schema.define(version: 20180213140749) do
   end
 
   add_foreign_key "merge_locals", "merge_restaurants"
+  add_foreign_key "merge_menus", "merge_restaurants"
   add_foreign_key "merge_restaurants", "connections"
   add_foreign_key "prov_merge_rests", "merge_restaurants"
   add_foreign_key "prov_merge_rests", "providers"
