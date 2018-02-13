@@ -27,3 +27,7 @@ test:
 production:
   <<: *default
   database: production_gloria
+
+development_gloria_1:
+  <<: *default
+  database: development_gloria_1
