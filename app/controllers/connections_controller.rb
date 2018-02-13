@@ -15,7 +15,7 @@ class ConnectionsController < ApplicationController
       flash[:alert] = "Conexion creada"
       redirect_to connections_path
     else
-      #render "new"
+      render "new"
     end
   end
 
