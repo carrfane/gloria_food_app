@@ -41,7 +41,7 @@ class ConnectionsController < ApplicationController
 
   private
     def connection_params
-      params.require(:connection).permit(:name, :name_db, :password_db, :host_db,)
+      params.require(:connection).permit(:name, :name_db, :password_db, :host_db, :username_db)
     end
 
     def authenticate_user
