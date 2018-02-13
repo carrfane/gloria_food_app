@@ -1,4 +1,10 @@
 <h1>menu</h1>
 
-seleccione el restaurante:
-<%= select_tag 'merge_restaurant_id', options_for_select(@merge_restaurant.collect{ |u| [u.name, u.id] }) %>
+
+<%= form_tag("/fetch_menu") do -%>
+	seleccione el restaurante:
+	<%= select_tag 'merge_restaurant_id', options_for_select(@merge_restaurant.collect{ |u| [u.connection.name, u.id] }), include_blank: true %>
+	<br>
+
+  <div><%= submit_tag 'consultar' %></div>
+<% end -%>

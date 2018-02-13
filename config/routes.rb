@@ -8,4 +8,5 @@ Rails.application.routes.draw do
 
 	#Rutas Menu
 	get "/menu",  :to => "merge_menus#index"
+	post "/fetch_menu",  :to => "merge_menus#fetch_menu"
 end
