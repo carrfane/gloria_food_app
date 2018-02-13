@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root 'connections#index'
+  resources :connections, except: :show
   resources :merge_locals
   resources :merge_restaurants
   devise_for :users
