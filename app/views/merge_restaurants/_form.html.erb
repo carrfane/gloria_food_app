@@ -18,7 +18,8 @@
 
   <div class="field">
     <%= form.label :connection_id %>
-    <%= form.text_field :connection_id, id: :merge_restaurant_connection_id %>
+    <!-- <%= form.text_field :connection_id, id: :merge_restaurant_connection_id %> -->
+    <%= select("merge_restaurant", "connection_id", Connection.all.collect {|c| [ c.name, c.id ] }, {include_blank: 'None'}) %>
   </div>
 
   <div class="field">
