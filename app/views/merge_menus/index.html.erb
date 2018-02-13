@@ -1,0 +1,4 @@
+<h1>menu</h1>
+
+seleccione el restaurante:
+<%= select_tag 'merge_restaurant_id', options_for_select(@merge_restaurant.collect{ |u| [u.name, u.id] }) %>
