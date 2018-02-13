@@ -1,0 +1,11 @@
+<%= form_for @connection do |f| %>
+    <%= f.text_field :name %><br />
+    <%= f.text_field :name_db %><br />
+    <%= f.text_field :username_db %><br />
+    <%= f.text_field :password_db %><br />
+    <%= f.text_field :host_db %><br />
+  
+    <%= f.submit %>
+<% end %>
+
+<%= link_to "Regresar a la tabla de conexiones", connections_path %>

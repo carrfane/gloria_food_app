@@ -1,0 +1,32 @@
+<%= form_with(model: merge_restaurant, local: true) do |form| %>
+  <% if merge_restaurant.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(merge_restaurant.errors.count, "error") %> prohibited this merge_restaurant from being saved:</h2>
+
+      <ul>
+      <% merge_restaurant.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :restaurant_key %>
+    <%= form.text_field :restaurant_key, id: :merge_restaurant_restaurant_key %>
+  </div>
+
+  <div class="field">
+    <%= form.label :connection_id %>
+    <%= form.text_field :connection_id, id: :merge_restaurant_connection_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :status %>
+    <%= form.check_box :status, id: :merge_restaurant_status %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,2 @@
+module MergeLocalsHelper
+end

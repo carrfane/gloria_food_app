@@ -1,0 +1,42 @@
+<%= form_with(model: merge_local, local: true) do |form| %>
+  <% if merge_local.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(merge_local.errors.count, "error") %> prohibited this merge_local from being saved:</h2>
+
+      <ul>
+      <% merge_local.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :c_local_id %>
+    <%= form.number_field :c_local_id, id: :merge_local_c_local_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :prov_local_id %>
+    <%= form.number_field :prov_local_id, id: :merge_local_prov_local_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :merge_restaurant_id %>
+    <%= form.text_field :merge_restaurant_id, id: :merge_local_merge_restaurant_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :restaurant_token %>
+    <%= form.text_field :restaurant_token, id: :merge_local_restaurant_token %>
+  </div>
+
+  <div class="field">
+    <%= form.label :status %>
+    <%= form.check_box :status, id: :merge_local_status %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

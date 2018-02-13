@@ -1,0 +1,60 @@
+<h1>Tabla de conexiones a la BBDD de los Restaurantes </h1>
+
+<table>
+    <th>
+      Nombre
+    </th>
+    <th>
+      Nombre BBDD
+    </th>
+    <th>
+      Usuario BBDD
+    </th>
+    <th>
+      Password BBDD (encrypted)
+    </th>
+    <th>
+      HOST_URL
+    </th>
+    <th>
+      Estado
+    </th>
+    <th>
+      Eliminar
+    </th>
+    <th>
+      Editar Conexion
+    </th>
+    <% if @connections %>
+      <% @connections.each do |connection| %>
+        <tr>
+          <td>
+            <%= connection.name %>
+          </td>
+          <td>
+            <%= connection.name_db %>
+          </td>
+          <td>
+            <%= connection.username_db %>
+          </td>
+          <td>
+            <%= connection.password_db %>
+          </td>
+          <td>
+            <%= connection.host_db %>
+          </td>
+          <td>
+            <%= connection.status %>
+          </td>
+          <td>
+            <%= link_to "Eliminar", connection_path(connection), method: :delete %>
+          </td>
+          <td>
+            <%= link_to "Editar", edit_connection_path(connection) %>
+          </td>
+        </tr>
+      <% end %>
+    <% end %>
+</table>
+
+<%= link_to "Nueva Conexion",  new_connection_path %>

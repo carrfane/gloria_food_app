@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Restaurant key:</strong>
+  <%= @merge_restaurant.restaurant_key %>
+</p>
+
+<p>
+  <strong>Connection:</strong>
+  <%= @merge_restaurant.connection %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @merge_restaurant.status %>
+</p>
+
+<%= link_to 'Edit', edit_merge_restaurant_path(@merge_restaurant) %> |
+<%= link_to 'Back', merge_restaurants_path %>
