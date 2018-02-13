@@ -16,7 +16,7 @@
     <% @merge_restaurants.each do |merge_restaurant| %>
       <tr>
         <td><%= merge_restaurant.restaurant_key %></td>
-        <td><%= merge_restaurant.connection %></td>
+        <td><%= merge_restaurant.connection.name %></td>
         <td><%= merge_restaurant.status %></td>
         <td><%= link_to 'Show', merge_restaurant %></td>
         <td><%= link_to 'Edit', edit_merge_restaurant_path(merge_restaurant) %></td>
