@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Merge Restaurants</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Restaurant key</th>
+      <th>Connection</th>
+      <th>Status</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @merge_restaurants.each do |merge_restaurant| %>
+      <tr>
+        <td><%= merge_restaurant.restaurant_key %></td>
+        <td><%= merge_restaurant.connection %></td>
+        <td><%= merge_restaurant.status %></td>
+        <td><%= link_to 'Show', merge_restaurant %></td>
+        <td><%= link_to 'Edit', edit_merge_restaurant_path(merge_restaurant) %></td>
+        <td><%= link_to 'Destroy', merge_restaurant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Merge Restaurant', new_merge_restaurant_path %>

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>C local:</strong>
+  <%= @merge_local.c_local_id %>
+</p>
+
+<p>
+  <strong>Prov local:</strong>
+  <%= @merge_local.prov_local_id %>
+</p>
+
+<p>
+  <strong>Merge restaurant:</strong>
+  <%= @merge_local.merge_restaurant %>
+</p>
+
+<p>
+  <strong>Restaurant token:</strong>
+  <%= @merge_local.restaurant_token %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @merge_local.status %>
+</p>
+
+<%= link_to 'Edit', edit_merge_local_path(@merge_local) %> |
+<%= link_to 'Back', merge_locals_path %>

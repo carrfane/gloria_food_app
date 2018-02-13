@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Merge Locals</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>C local</th>
+      <th>Prov local</th>
+      <th>Merge restaurant</th>
+      <th>Restaurant token</th>
+      <th>Status</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @merge_locals.each do |merge_local| %>
+      <tr>
+        <td><%= merge_local.c_local_id %></td>
+        <td><%= merge_local.prov_local_id %></td>
+        <td><%= merge_local.merge_restaurant %></td>
+        <td><%= merge_local.restaurant_token %></td>
+        <td><%= merge_local.status %></td>
+        <td><%= link_to 'Show', merge_local %></td>
+        <td><%= link_to 'Edit', edit_merge_local_path(merge_local) %></td>
+        <td><%= link_to 'Destroy', merge_local, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Merge Local', new_merge_local_path %>
