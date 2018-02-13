@@ -2,4 +2,5 @@
 
 <%= render 'form', merge_local: @merge_local %>
 
-<%= link_to 'Back', merge_locals_path %>
+<%= link_to 'Back', merge_restaurant_merge_locals_path(merge_restaurant_id: @merge_restaurant.id) %>
+

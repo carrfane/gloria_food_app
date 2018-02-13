@@ -19,12 +19,12 @@
       <tr>
         <td><%= merge_local.c_local_id %></td>
         <td><%= merge_local.prov_local_id %></td>
-        <td><%= merge_local.merge_restaurant %></td>
+        <td><%= merge_local.merge_restaurant.connection.name_db %></td>
         <td><%= merge_local.restaurant_token %></td>
         <td><%= merge_local.status %></td>
-        <td><%= link_to 'Show', merge_local %></td>
-        <td><%= link_to 'Edit', edit_merge_local_path(merge_local) %></td>
-        <td><%= link_to 'Destroy', merge_local, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', merge_restaurant_merge_local_path(merge_restaurant_id: @merge_restaurant.id, id: merge_local.id) %></td>
+        <td><%= link_to 'Edit', edit_merge_restaurant_merge_local_path(merge_restaurant_id: @merge_restaurant.id, id: merge_local.id) %></td>
+        <td><%= link_to 'Destroy', merge_restaurant_merge_local_path(merge_restaurant_id: @merge_restaurant.id, id: merge_local.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -32,4 +32,4 @@
 
 <br>
 
-<%= link_to 'New Merge Local', new_merge_local_path %>
+<%= link_to 'New Merge Local', new_merge_restaurant_merge_local_path(merge_restaurant_id: @merge_restaurant.id) %>

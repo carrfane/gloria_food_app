@@ -1,10 +1,11 @@
 class MergeLocalsController < ApplicationController
+  before_action :set_merge_restaurant
   before_action :set_merge_local, only: [:show, :edit, :update, :destroy]
 
   # GET /merge_locals
   # GET /merge_locals.json
   def index
-    @merge_locals = MergeLocal.all
+    @merge_locals = @merge_restaurant.merge_locals
   end
 
   # GET /merge_locals/1
@@ -14,7 +15,7 @@ class MergeLocalsController < ApplicationController
 
   # GET /merge_locals/new
   def new
-    @merge_local = MergeLocal.new
+    @merge_local = @merge_restaurant.merge_locals.new
   end
 
   # GET /merge_locals/1/edit
@@ -24,11 +25,10 @@ class MergeLocalsController < ApplicationController
   # POST /merge_locals
   # POST /merge_locals.json
   def create
-    @merge_local = MergeLocal.new(merge_local_params)
-
+    @merge_local = @merge_restaurant.merge_locals.new(merge_local_params)
     respond_to do |format|
       if @merge_local.save
-        format.html { redirect_to @merge_local, notice: 'Merge local was successfully created.' }
+        format.html { redirect_to merge_restaurant_merge_locals_path(merge_restaurant_id: @merge_restaurant.id), notice: 'Merge local was successfully created.' }
         format.json { render :show, status: :created, location: @merge_local }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class MergeLocalsController < ApplicationController
   def update
     respond_to do |format|
       if @merge_local.update(merge_local_params)
-        format.html { redirect_to @merge_local, notice: 'Merge local was successfully updated.' }
+        format.html { redirect_to merge_restaurant_merge_local_path(merge_restaurant_id: @merge_restaurant.id, id: @merge_local.id), notice: 'Merge local was successfully updated.' }
         format.json { render :show, status: :ok, location: @merge_local }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class MergeLocalsController < ApplicationController
   def destroy
     @merge_local.destroy
     respond_to do |format|
-      format.html { redirect_to merge_locals_url, notice: 'Merge local was successfully destroyed.' }
+      format.html { redirect_to merge_restaurant_merge_locals_path(merge_restaurant_id: @merge_restaurant.id), notice: 'Merge local was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -64,7 +64,12 @@ class MergeLocalsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_merge_local
-      @merge_local = MergeLocal.find(params[:id])
+      @merge_local = @merge_restaurant.merge_locals.find(params[:id])
+    end
+
+    #Objecto de merge_restaurant
+    def set_merge_restaurant
+      @merge_restaurant = MergeRestaurant.find(params[:merge_restaurant_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

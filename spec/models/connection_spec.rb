@@ -1,5 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Connection, type: :model do
-  it { should have_one(:merge_restaurant) }
+	context 'validations' do
+		it { should validate_presence_of(:name) }
+	end
 end

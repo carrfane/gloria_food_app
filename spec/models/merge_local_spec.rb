@@ -1,5 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe MergeLocal, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+	context 'relations' do
+		it { should belong_to(:merge_restaurant) }
+	end
 end
